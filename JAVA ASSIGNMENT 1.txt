@@ -1,0 +1,702 @@
+JAVA ASSIGNMENT 1
+
+
+Q1. Write a Java program to change the temperature from Celsius to Fahrenheit and vice versa.
+
+import java.util.Scanner;
+
+public class TemperatureConverter {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter temperature in Celsius: ");
+        double celsius = scanner.nextDouble();
+        double fahrenheit = (celsius * 9 / 5) + 32;
+        System.out.println(celsius + " Celsius = " + fahrenheit + " Fahrenheit");
+
+        System.out.print("Enter temperature in Fahrenheit: ");
+        fahrenheit = scanner.nextDouble();
+        celsius = (fahrenheit - 32) * 5 / 9;
+        System.out.println(fahrenheit + " Fahrenheit = " + celsius + " Celsius");
+
+        scanner.close();
+    }
+}
+
+Q2.write a program to check if a number is positive or negative.
+
+import java.util.Scanner;
+
+public class PositiveNegativeCheck {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        if (number > 0) {
+            System.out.println(number + " is positive.");
+        } else if (number < 0) {
+            System.out.println(number + " is negative.");
+        } else {
+            System.out.println("The number is zero.");
+        }
+
+        scanner.close();
+    }
+}
+
+Q3.write a program to swap two numbers.
+
+import java.util.Scanner;
+
+public class SwapNumbers {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        int num1 = scanner.nextInt();
+
+        System.out.print("Enter second number: ");
+        int num2 = scanner.nextInt();
+
+        // Swap the numbers
+        int temp = num1;
+        num1 = num2;
+        num2 = temp;
+
+        System.out.println("After swapping:");
+        System.out.println("First number: " + num1);
+        System.out.println("Second number: " + num2);
+
+        scanner.close();
+    }
+}
+
+Q.4 Write a java programme to convert miles to kilometre.
+
+
+import java.util.Scanner;
+
+public class MilesToKilometers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter miles: ");
+        double miles = scanner.nextDouble();
+
+        double kilometers = miles * 1.60934;
+
+        System.out.println(miles + " miles is equal to " + kilometers + " kilometers.");
+    }
+}
+
+Q5. Write java code to check whether a year is leap year or not.
+
+import java.util.Scanner;
+
+public class LeapYearCheck {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a year: ");
+        int year = scanner.nextInt();
+
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            System.out.println(year + " is a leap year.");
+        } else {
+            System.out.println(year + " is not a leap year.");
+        }
+    }
+}
+
+Q6. Write a java programme to implement grading system based on percentage.
+
+import java.util.Scanner;
+
+public class GradingSystem {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter percentage: ");
+        double percentage = scanner.nextDouble();
+
+        String grade;
+        if (percentage >= 90) {
+            grade = "A";
+        } else if (percentage >= 80) {
+            grade = "B";
+        } else if (percentage >= 70) {
+            grade = "C";
+        } else if (percentage >= 60) {
+            grade = "D";
+        } else if (percentage >= 40) {
+            grade = "E";
+        } else {
+            grade = "F";
+        }
+
+        System.out.println("Grade: " + grade);
+    }
+}
+
+
+Q6. Write a java programme to whether a number is divisible by other number.
+
+import java.util.Scanner;
+
+public class DivisibilityCheck {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+        System.out.print("Enter a divisor: ");
+        int divisor = scanner.nextInt();
+
+        if (number % divisor == 0) {
+            System.out.println(number + " is divisible by " + divisor);
+        } else {
+            System.out.println(number + " is not divisible by " + divisor);
+        }
+    }
+}
+
+
+Q7. Write a java programme to calculate the factorial of 12.
+
+public class Factorial {
+    public static void main(String[] args) {
+        int number = 12;
+        long factorial = 1;
+
+        for (int i = 1; i <= number; i++) {
+            factorial *= i;
+        }
+
+        System.out.println("Factorial of " + number + " is " + factorial);
+    }
+}
+
+
+Q8. Write a java programme to print the Fibonacci series up to a given number of terms.
+
+import java.util.Scanner;
+
+public class FibonacciSeries {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of terms: ");
+        int terms = scanner.nextInt();
+
+        int firstTerm = 0, secondTerm = 1;
+
+        System.out.print("Fibonacci Series: " + firstTerm + " " + secondTerm);
+
+        for (int i = 2; i < terms; i++) {
+            int nextTerm = firstTerm + secondTerm;
+            System.out.print(" " + nextTerm);
+            firstTerm = secondTerm;
+            secondTerm = nextTerm;
+        }
+    }
+}
+
+
+Q9. Write a java programme to reverse a given number.
+
+import java.util.Scanner;
+
+public class ReverseNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        int reversedNumber = 0;
+        while (number != 0) {
+            int remainder = number % 10;
+            reversedNumber = reversedNumber * 10 + remainder;
+            number /= 10;
+        }
+
+        System.out.println("Reversed number: " + reversedNumber);
+    }
+}
+
+
+Q10. Write a java programme to check the eligibility of students for admission based on their marks in three subjects.
+
+import java.util.Scanner;
+
+public class AdmissionEligibility {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of students: ");
+        int n = scanner.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            System.out.println("Enter marks for student " + i);
+            System.out.print("Mathematics: ");
+            int mathMarks = scanner.nextInt();
+            System.out.print("Physics: ");
+            int physicsMarks = scanner.nextInt();
+            System.out.print("Chemistry: ");
+            int chemistryMarks = scanner.nextInt();
+
+            if ((mathMarks >= 60 && physicsMarks >= 50 && chemistryMarks >= 40 && mathMarks + physicsMarks + chemistryMarks >= 200) || (mathMarks + physicsMarks >= 150)) {
+                System.out.println("Student " + i + " is eligible for admission.");
+            } else {
+                System.out.println("Student " + i + " is not eligible for admission.");
+            }
+        }
+    }
+}
+
+
+Q11. Write a java programme to calculate the sum of natural numbers up to a given number.
+
+import java.util.Scanner;
+
+public class SumOfNaturalNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the upper limit: ");
+        int upperLimit = scanner.nextInt();
+
+        int sum = 0;
+        for (int i = 1; i <= upperLimit; i++) {
+            sum += i;
+        }
+
+        System.out.println("Sum of natural numbers up to " + upperLimit + " is " + sum);
+    }
+}
+
+
+Q12. Write a java programme to print all multiples of 10 within a given range.
+
+import java.util.Scanner;
+
+public class MultiplesOf10 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the lower limit: ");
+        int lowerLimit = scanner.nextInt();
+        System.out.print("Enter the upper limit: ");
+        int upperLimit = scanner.nextInt();
+
+        System.out.println("Multiples of 10 between " + lowerLimit + " and " + upperLimit + ":");
+        for (int i = lowerLimit; i <= upperLimit; i++) {
+            if (i % 10 == 0) {
+                System.out.println(i);
+            }
+        }
+    }
+}
+
+
+Q13. Write a java programme to print the multiplication table of a given number.
+
+import java.util.Scanner;
+
+public class MultiplicationTable {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        System.out.println("Multiplication table for " + number + ":");
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(number + " x " + i + " = " + (number * i));
+        }
+    }
+}
+
+
+Q14. Write a java programme to count the number of digits of an integer.
+
+import java.util.Scanner;
+
+public class CountDigits {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int number = scanner.nextInt();
+
+        int count = 0;
+        while (number != 0) {
+            number /= 10;
+            count++;
+        }
+
+        System.out.println("The number of digits in " + number + " is " + count);
+    }
+}
+
+
+Q15. Write a java programme to find the HCF of two numbers.
+
+import java.util.Scanner;
+
+public class HCF {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter two numbers: ");
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+
+        int hcf = 1;
+        for (int i = 1; i <= Math.min(num1, num2); i++) {
+            if (num1 % i == 0 && num2 % i == 0) {
+                hcf = i;
+            }
+        }
+
+        System.out.println("HCF of " + num1 + " and " + num2 + " is " + hcf);
+    }
+}
+
+
+Q16. Write a java programme to calculate the LCM of two numbers.
+
+import java.util.Scanner;
+
+public class LCM {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter two numbers: ");
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+
+        int max = Math.max(num1, num2);
+        int lcm = max;
+
+        while (true) {
+            if (lcm % num1 == 0 && lcm % num2 == 0) {
+                break;
+            }
+            lcm += max;
+        }
+
+        System.out.println("LCM of " + num1 + " and " + num2 + " is " + lcm);
+    }
+}
+
+Q17. Write a java programme to check whether a number is palindrome or not.
+
+import java.util.Scanner;
+
+public class PalindromeCheck {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        int originalNumber = number;
+        int reversedNumber = 0;
+
+        while (number != 0) {
+            int remainder = number % 10;
+            reversedNumber = reversedNumber * 10 + remainder;
+            number /= 10;
+        }
+
+        if (originalNumber == reversedNumber) {
+            System.out.println(originalNumber + " is a palindrome.");
+        } else {
+            System.out.println(originalNumber + " is not a palindrome.");
+        }
+    }
+}
+
+
+Q18. Write a java programme to check whether a number is prime or not.
+
+import java.util.Scanner;
+
+public class PrimeNumberCheck {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        boolean isPrime = true;
+        if (number <= 1) {
+            isPrime = false;
+        } else {
+            for (int i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+
+        if (isPrime) {
+            System.out.println(number + " is a prime number.");
+        } else {
+            System.out.println(number + " is not a prime number.");
+        }
+    }
+}
+
+
+Q.19 Write a java programme to convert a binary number to decimal and decimal to binary.
+
+import java.util.Scanner;
+
+public class BinaryToDecimalAndDecimalToBinary {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number (binary or decimal): ");
+        int number = scanner.nextInt();
+
+        System.out.print("Enter 'b' for binary to decimal, 'd' for decimal to binary: ");
+        char conversionType = scanner.next().charAt(0);
+
+        if (conversionType == 'b') {
+            int decimal = 0;
+            int power = 0;
+            while (number != 0) {
+                int digit = number % 10;
+                decimal += digit * Math.pow(2, power);
+                number /= 10;
+                power++;
+            }
+            System.out.println("Decimal equivalent: " + decimal);
+        } else if (conversionType == 'd') {
+            String binary = "";
+            while (number > 0) {
+                binary = number % 2 + binary;
+                number /= 2;
+            }
+            System.out.println("Binary equivalent: " + binary);
+        } else {
+            System.out.println("Invalid conversion type.");
+        }
+    }
+}
+
+
+Q20. Write a java programme to find the median of a set numbers.
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class MedianOfNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+
+        int[] numbers = new int[n];
+        System.out.println("Enter the numbers:");
+        for (int i = 0; i < n; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+
+        Arrays.sort(numbers);
+
+        if (n % 2 == 0) {
+            int mid1 = numbers[n / 2 - 1];
+            int mid2 = numbers[n / 2];
+            double median = (double) (mid1 + mid2) / 2;
+            System.out.println("Median: " + median);
+        } else {
+            int mid = numbers[n / 2];
+            System.out.println("Median: " + mid);
+        }
+    }
+}
+
+Q.21 Write a java programme to print the pattern given below:
+
+public class PatternPrinting {
+    public static void main(String[] args) {
+        // Pattern (a)
+        for (int i = 1; i <= 3; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j);
+            }
+            System.out.println();
+        }
+
+        System.out.println();
+
+        // Pattern (b)
+        for (int i = 1; i <= 4; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j);
+            }
+            for (int j = i - 1; j >= 1; j--) {
+                System.out.print(j);
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+Q22 write a java programme to calculate Average and sum of an integer array 
+
+import java.util.Scanner;
+
+public class SumAndAverageOfArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+
+        int[] numbers = new int[n];
+        System.out.println("Enter the numbers:");
+        for (int i = 0; i < n; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += numbers[i];
+        }
+
+        double average = (double) sum / n;
+
+        System.out.println("Sum: " + sum);
+        System.out.println("Average: " + average);
+    }
+}
+
+
+Q.23 write a java programme to implement stack using array.
+
+public class Stack {
+    private int[] stackArray;
+    private int top;
+    private int capacity;
+
+    public Stack(int capacity) {
+        this.capacity = capacity;
+        stackArray = new int[capacity];
+        top = -1;
+    }
+
+    public boolean isEmpty() {
+        return top == -1;
+    }
+
+    public boolean isFull() {
+        return top == capacity - 1;
+    }
+
+    public void push(int data) {
+        if (isFull()) {
+            System.out.println("Stack Overflow");
+        } else {
+            stackArray[++top] = data;
+            System.out.println(data + " pushed to stack");
+        }
+    }
+
+    public int pop() {
+        if (isEmpty()) {
+            System.out.println("Stack Underflow");
+            return -1;
+        } else {
+            int poppedElement = stackArray[top--];
+            System.out.println(poppedElement + " popped from stack");
+            return poppedElement;
+        }
+    }
+
+    public int peek() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty");
+            return -1;
+        } else {
+            return stackArray[top];
+        }
+    }
+
+    public static void main(String[] args) {
+        Stack stack = new Stack(5);
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        System.out.println("Top element: " + stack.peek());
+        stack.pop();
+        stack.pop();
+        stack.pop();
+    }
+}
+
+
+Q24. Write a java programme to implement Queue using array.
+
+public class Queue {
+    private int[] queueArray;
+    private int front;
+    private int rear;
+    private int capacity;
+
+    public Queue(int capacity) {
+        this.capacity = capacity;
+        queueArray = new int[capacity];
+        front = rear = -1;
+    }
+
+    public boolean isEmpty() {
+        return front == -1;
+    }
+
+    public boolean isFull() {
+        return (rear + 1) % capacity == front;
+    }
+
+    public void enqueue(int data) {
+        if (isFull()) {
+            System.out.println("Queue Overflow");
+        } else {
+            if (isEmpty()) {
+                front = rear = 0;
+            } else {
+                rear = (rear + 1) % capacity;
+            }
+            queueArray[rear] = data;
+            System.out.println(data + " enqueued to queue");
+        }
+    }
+
+    public int dequeue() {
+        if (isEmpty()) {
+            System.out.println
+
+
+Q25. Write a java programme to find the maximum of three numbers.
+
+import java.util.Scanner;
+
+public class MaximumOfThree {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+        
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+        
+        System.out.print("Enter the third number: ");
+        int num3 = scanner.nextInt();
+        
+        int max = num1;
+        
+        if (num2 > max) {
+            max = num2;
+        }
+        
+        if (num3 > max) {
+            max = num3;
+        }
+        
+        System.out.println("The maximum number is: " + max);
+    }
+}
