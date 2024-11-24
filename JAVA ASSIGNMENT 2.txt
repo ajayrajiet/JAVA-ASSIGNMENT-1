@@ -1,0 +1,990 @@
+JAVA ASSIGNMENT 2
+
+
+Q.1 Given are two one-dimensional arrays A & B, which are sorted in ascending order. Write 
+a Java program to merge them into single sorted array C that contains every item from 
+arrays A & B, in ascending order.
+
+import java.util.Arrays;
+
+public class MergeSortedArrays {
+    public static void main(String[] args) {
+        int[] A = {1, 3, 5, 7};
+        int[] B = {2, 4, 6, 8, 10};
+
+        int[] C = new int[A.length + B.length];
+
+        int i = 0, j = 0, k = 0;
+
+        // Merge elements from A and B into C
+        while (i < A.length && j < B.length) {
+            if (A[i] <= B[j]) {
+                C[k++] = A[i++];
+            } else {
+                C[k++] = B[j++];
+            }
+        }
+
+        // Copy remaining elements from A, if any
+        while (i < A.length) {
+            C[k++] = A[i++];
+        }
+
+        // Copy remaining elements from B, if any
+        while (j < B.length) {
+            C[k++] = B[j++];
+        }
+
+        System.out.println("Merged array C: " + Arrays.toString(C));
+    }
+}
+
+Q.2 Write a java programme to show 0-argument constructor.
+
+public class ZeroArgumentConstructor {
+    int num;
+
+    // Default constructor
+    public ZeroArgumentConstructor() {
+        num = 10;
+        System.out.println("Default constructor called.");
+    }
+
+    public void display() {
+        System.out.println("Value of num: " + num);
+    }
+
+    public static void main(String[] args) {
+        ZeroArgumentConstructor obj = new ZeroArgumentConstructor();
+        obj.display();
+    }
+}
+
+
+Q.3 Write a java programme to show parameterized construcor.
+
+public class ParameterizedConstructor {
+    int x, y;
+
+    // Parameterized constructor
+    public ParameterizedConstructor(int a, int b) {
+        x = a;
+        y = b;
+        System.out.println("Parameterized constructor called.");
+    }
+
+    public void display() {
+        System.out.println("x = " + x + ", y = " + y);
+    }
+
+    public static void main(String[] args) {
+        ParameterizedConstructor obj = new ParameterizedConstructor(10, 20);
+        obj.display();
+    }
+}
+
+
+Q.4 write a java programme to show constructor overloading.
+
+public class ConstructorOverloading {
+    int x, y;
+
+    // Default constructor
+    public ConstructorOverloading() {
+        x = 10;
+        y = 20;
+        System.out.println("Default constructor called.");
+    }
+
+    // Parameterized constructor with one argument
+    public ConstructorOverloading(int a) {
+        x = a;
+        y = 2 * a;
+        System.out.println("Parameterized constructor with one argument called.");
+    }
+
+    // Parameterized constructor with two arguments
+    public ConstructorOverloading(int a, int b) {
+        x = a;
+        y = b;
+        System.out.println("Parameterized constructor with two arguments called.");
+    }
+
+    public void display() {
+        System.out.println("x = " + x + ", y = " + y);
+    }
+
+    public static void main(String[] args) {
+        ConstructorOverloading obj1 = new ConstructorOverloading();
+        obj1.display();
+
+        ConstructorOverloading obj2 = new ConstructorOverloading(5);
+        obj2.display();
+
+        ConstructorOverloading obj3 = new ConstructorOverloading(10, 20);
+        obj3.display();
+    }
+}
+
+
+Q.5 Write a Java program to implement the concept of inheritance.
+
+class Animal {
+    public void eat() {
+        System.out.println("Animal is eating.");
+    }
+}
+
+class Dog extends Animal {
+    public void bark() {
+        System.out.println("Dog is barking.");
+    }
+}
+
+public class InheritanceExample {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.eat();
+        dog.bark();
+    }
+}
+
+
+Q.6 Write a Java program to show method overloading.
+
+public class MethodOverloading {
+    public void add(int a, int b) {
+        System.out.println("Sum of integers: " + (a + b));
+    }
+
+    public void add(double a, double b) {
+        System.out.println("Sum of doubles: " + (a + b));
+    }
+
+    public void add(int a, int b, int c) {
+        System.out.println("Sum of three integers: " + (a + b + c));
+    }
+
+    public static void main(String[] args) {
+        MethodOverloading obj = new MethodOverloading();
+        obj.add(10, 20);
+        obj.add(5.5, 6.5);
+        obj.add(10, 20, 30);
+    }
+}
+
+
+Q.7 Write a Java program to show method overriding.
+
+class Parent {
+    public void display() {
+        System.out.println("Parent class method");
+    }
+}
+
+class Child extends Parent {
+    @Override
+    public void display() {
+        System.out.println("Child class method");
+    }
+}
+
+public class MethodOverridingExample {
+    public static void main(String[] args) {
+        Child obj = new Child();
+        obj.display();
+    }
+}
+
+
+Q.8 Write a Java program to show method hiding.
+
+class Parent {
+    public void display() {
+        System.out.println("Parent class method");
+    }
+}
+
+class Child extends Parent {
+    public void display(int x) {
+        System.out.println("Child class method with argument: " + x);
+    }
+}
+
+public class MethodHidingExample {
+    public static void main(String[] args) {
+        Child obj = new Child();
+        obj.display(); // Calls the Parent class's display() method
+        obj.display(10); // Calls the Child class's display(int) method
+    }
+}
+
+
+Q.9 Write a program to demonstrate use of 'this' keyword.
+
+public class ThisKeywordExample {
+    int x;
+
+    public ThisKeywordExample(int x) {
+        // Using 'this' to refer to the instance variable
+        this.x = x;
+    }
+
+    public void display() {
+        System.out.println("Value of x: " + x);
+    }
+
+    public static void main(String[] args) {
+        ThisKeywordExample obj = new ThisKeywordExample(10);
+        obj.display();
+    }
+}
+
+
+Q.10 Write a program to demonstrate use of 'static' keyword.
+
+public class StaticKeywordExample {
+    static int count = 0; // Static variable
+
+    public StaticKeywordExample() {
+        count++;
+    }
+
+    public void display() {
+        System.out.println("Object number: " + count);
+    }
+
+    public static void main(String[] args) {
+        StaticKeywordExample obj1 = new StaticKeywordExample();
+        obj1.display();
+
+        StaticKeywordExample obj2 = new StaticKeywordExample();
+        obj2.display();
+    }
+}
+
+
+Q.11 Write a Java program to show the use of all keywords for exception handling.
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ExceptionHandlingExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter a number: ");
+            int number = scanner.nextInt();
+
+            int result = 10 / number;
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero.");
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Invalid input. Please enter a number.");
+        } catch (Exception e) {
+            System.out.println("An unexpected error occurred: " + e.getMessage());
+        } finally {
+            System.out.println("Finally block executed.");
+            scanner.close();
+        }
+    }
+}
+
+
+Q.12 Create a general class ThreeDObject and derive the classes Box, Cube, Cylinder and 
+Cone from it. The class ThreeDObject has methods wholeSurfaceArea ( ) and volume ().
+Override these two methods in each of the derived classes to calculate the volume and 
+whole surface area of each type of three-dimensional objects. The dimensions of the 
+objects are to be taken from the users and passed through the respective constructors of 
+each derived class. Write a main method to test these classes.
+
+import java.util.Scanner;
+
+class ThreeDObject {
+    public void wholeSurfaceArea() {
+        // To be implemented in derived classes
+    }
+
+    public void volume() {
+        // To be implemented in derived classes
+    }
+}
+
+class Box extends ThreeDObject {
+    private double length, width, height;
+
+    public Box(double length, double width, double height) {
+        this.length = length;
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    public void wholeSurfaceArea() {
+        double surfaceArea = 2 * (length * width + width * height + height * length);
+        System.out.println("Surface Area of Box: " + surfaceArea);
+    }
+
+    @Override
+    public void volume() {
+        double volume = length * width * height;
+        System.out.println("Volume of Box: " + volume);
+    }
+}
+
+class Cube extends ThreeDObject {
+    private double side;
+
+    public Cube(double side) {
+        this.side = side;
+    }
+
+    @Override
+    public void wholeSurfaceArea() {
+        double surfaceArea = 6 * side * side;
+        System.out.println("Surface Area of Cube: " + surfaceArea);
+    }
+
+    @Override
+    public void volume() {
+        double volume = side * side * side;
+        System.out.println("Volume of Cube: " + volume);
+    }
+}
+
+class Cylinder extends ThreeDObject {
+    private double radius, height;
+
+    public Cylinder(double radius, double height) {
+        this.radius = radius;
+        this.height = height;
+    }
+
+    @Override
+    public void wholeSurfaceArea() {
+        double surfaceArea = 2 * Math.PI * radius * (radius + height);
+        System.out.println("Surface Area of Cylinder: " + surfaceArea);
+    }
+
+    @Override
+    public void volume() {
+        double volume = Math.PI * radius * radius * height;
+        System.out.println("Volume of Cylinder: " + volume);
+    }
+}
+
+class Cone extends ThreeDObject {
+    private double radius, height;
+
+    public Cone(double radius, double height) {
+        this.radius = radius;
+        this.height = height;
+    }
+
+    @Override
+    public void wholeSurfaceArea() {
+        double slantHeight = Math.sqrt(radius * radius + height * height);
+        double surfaceArea = Math.PI * radius * (radius + slantHeight);
+        System.out.println("Surface Area of Cone: " + surfaceArea);
+    }
+
+    @Override
+    public void volume() {
+        double volume = (1.0 / 3.0) * Math.PI * radius * radius * height;
+        System.out.println("Volume of Cone: " + volume);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter length, width, and height of the box: ");
+        double length = scanner.nextDouble();
+        double width = scanner.nextDouble();
+        double height = scanner.nextDouble();
+        Box box = new Box(length, width, height);
+        box.wholeSurfaceArea();
+        box.volume();
+
+        System.out.print("Enter side of the cube: ");
+        double side = scanner.nextDouble();
+        Cube cube = new Cube(side);
+        cube.wholeSurfaceArea();
+        cube.volume();
+
+        System.out.print("Enter radius and height of the cylinder: ");
+        double radius = scanner.nextDouble();
+        double heightCylinder = scanner.nextDouble();
+        Cylinder cylinder = new Cylinder(radius, heightCylinder);
+        cylinder.wholeSurfaceArea();
+        cylinder.volume();
+
+        System.out.print("Enter radius and height of the cone: ");
+        radius = scanner.nextDouble();
+        double heightCone = scanner.nextDouble();
+        Cone cone = new Cone(radius, heightCone);
+        cone.wholeSurfaceArea();
+        cone.volume();
+
+        scanner.close();
+    }
+}
+
+
+Q13. Write a program to create a class named Vehicle having protected instance variables 
+regnNumber, speed, color, ownerName and a method showData ( ) to show “This is a 
+vehicle class”. Inherit the Vehicle class into subclasses named Bus and Car having
+individual private instance variables routeNumber in Bus and manufacturerName in Car 
+and both of them having showData ( ) method showing all details of Bus and Car 
+respectively with content of the super class’s showData ( ) method.
+
+class Vehicle {
+    protected String regNumber;
+    protected int speed;
+    protected String color;
+    protected String ownerName;
+
+    public void showData() {
+        System.out.println("This is a vehicle class.");
+    }
+}
+
+class Bus extends Vehicle {
+    private int routeNumber;
+
+    public Bus(String regNumber, int speed, String color, String ownerName, int routeNumber) {
+        this.regNumber = regNumber;
+        this.speed = speed;
+        this.color = color;
+        this.ownerName = ownerName;
+        this.routeNumber = routeNumber;
+    }
+
+    public void showData() {
+        super.showData();
+        System.out.println("Vehicle Details:");
+        System.out.println("Registration Number: " + regNumber);
+        System.out.println("Speed: " + speed);
+        System.out.println("Color: " + color);
+        System.out.println("Owner Name: " + ownerName);
+        System.out.println("Route Number: " + routeNumber);
+    }
+}
+
+class Car extends Vehicle {
+    private String manufacturerName;
+
+    public Car(String regNumber, int speed, String color, String ownerName, String manufacturerName) {
+        this.regNumber = regNumber;
+        this.speed = speed;
+        this.color = color;
+        this.ownerName = ownerName;
+        this.manufacturerName = manufacturerName;
+    }
+
+    public void showData() {
+        super.showData();
+        System.out.println("Vehicle Details:");
+        System.out.println("Registration Number: " + regNumber);
+        System.out.println("Speed: " + speed);
+        System.out.println("Color: " + color);
+        System.out.println("Owner Name: " + ownerName);
+        System.out.println("Manufacturer Name: " + manufacturerName);
+    }
+
+    public static void main(String[] args) {
+        Bus bus = new Bus("MH-12-AB-1234", 80, "Red", "ABC Transport", 101);
+        Car car = new Car("MH-12-XY-9876", 120, "Black", "XYZ Motors", "Maruti Suzuki");
+
+        bus.showData();
+        System.out.println();
+        car.showData();
+    }
+}
+
+
+Q.14 Write a Java program which creates a base class Num and contains an integer number 
+along with a method shownum() which displays the number. Now create a derived class 
+HexNum which inherits Num and overrides shownum() which displays the hexadecimal 
+value and octal value of the number. Demonstrate the working of the classes.
+
+class Num {
+    int number;
+
+    public Num(int number) {
+        this.number = number;
+    }
+
+    public void showNum() {
+        System.out.println("Number: " + number);
+    }
+}
+
+class HexNum extends Num {
+    public HexNum(int number) {
+        super(number);
+    }
+
+    @Override
+    public void showNum() {
+        System.out.println("Hexadecimal: " + Integer.toHexString(number));
+        System.out.println("Octal: " + Integer.toOctalString(number));
+    }
+}
+
+public class InheritanceExample {
+    public static void main(String[] args) {
+        HexNum hexNum = new HexNum(42);
+        hexNum.showNum();
+    }
+}```
+
+Q.15 Create a base class Distance which stores the distance between two locations in miles and 
+a method travelTime(). The method prints the time taken to cover the distance when thespeed is 60 miles per hour. Now in a derived class DistanceMKS, override travelTime() 
+so that it prints the time assuming the distance is in kilometers and the speed is 100 km 
+per second. Demonstrate the working of the classes.
+
+class Distance {
+    private double distanceInMiles;
+
+    public Distance(double distanceInMiles) {
+        this.distanceInMiles = distanceInMiles;
+    }
+
+    public void travelTime() {
+        double timeInHours = distanceInMiles / 60;
+        System.out.println("Time taken to travel " + distanceInMiles + " miles at 60 mph: " + timeInHours + " hours");
+    }
+}
+
+class DistanceMKS extends Distance {
+    public DistanceMKS(double distanceInKilometers) {
+        super(distanceInKilometers * 0.621371); // Convert kilometers to miles
+    }
+
+    @Override
+    public void travelTime() {
+        double distanceInMeters = distanceInMiles * 1609.34;
+        double timeInSeconds = distanceInMeters / 100;
+        double timeInMinutes = timeInSeconds / 60;
+        double timeInHours = timeInMinutes / 60;
+        System.out.println("Time taken to travel " + distanceInMiles + " miles at 100 km/s: " + timeInHours + " hours");
+    }
+}
+
+public class InheritanceExample {
+    public static void main(String[] args) {
+        Distance distanceMiles = new Distance(100);
+        distanceMiles.travelTime();
+
+        DistanceMKS distanceKM = new DistanceMKS(100);
+        distanceKM.travelTime();
+    }
+}
+
+
+Q16 Write a program to define a class Employee to accept emp_id, emp _name, basic_salary 
+from the user and display the gross_salary.
+
+import java.util.Scanner;
+
+class Employee {
+    int emp_id;
+    String emp_name;
+    double basic_salary, da, hra, gross_salary;
+
+    public void input() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter Employee ID: ");
+        emp_id = scanner.nextInt();
+
+        System.out.print("Enter Employee Name: ");
+        emp_name = scanner.next();
+
+        System.out.print("Enter Basic Salary: ");
+        basic_salary = scanner.nextDouble();
+
+        scanner.close();
+
+        da = 0.1 * basic_salary;
+        hra = 0.05 * basic_salary;
+        gross_salary = basic_salary + da + hra;
+    }
+
+    public void display() {
+        System.out.println("Employee ID: " + emp_id);
+        System.out.println("Employee Name: " + emp_name);
+        System.out.println("Basic Salary: " + basic_salary);
+        System.out.println("Gross Salary: " + gross_salary);
+    }
+
+    public static void main(String[] args) {
+        Employee emp = new Employee();
+        emp.input();
+        emp.display();
+    }
+}
+
+
+Q 17 Create three interfaces, each with two methods. Inherit a new interface from the three, 
+adding a new method. Create a class by implementing the new interface and also 
+inheriting from a concrete class. Now write four methods, each of which takes one of the 
+four interfaces as an argument. In main ( ), create an object of your class and pass it to 
+each of the methods.
+
+interface Interface1 {
+    void method1();
+    void method2();
+}
+
+interface Interface2 {
+    void method3();
+    void method4();
+}
+
+interface Interface3 {
+    void method5();
+    void method6();
+}
+
+interface CombinedInterface extends Interface1, Interface2, Interface3 {
+    void method7();
+}
+
+class ConcreteClass {
+    public void concreteMethod() {
+        System.out.println("Concrete method called");
+    }
+}
+
+class ImplementingClass extends ConcreteClass implements CombinedInterface {
+    @Override
+    public void method1() {
+        System.out.println("Method 1");
+    }
+
+    @Override
+    public void method2() {
+        System.out.println("Method 2");
+    }
+
+    @Override
+    public void method3() {
+        System.out.println("Method 3");
+    }
+
+    @Override
+    public void method4() {
+        System.out.println("Method 4");
+    }
+
+    @Override
+    public void method5() {
+        System.out.println("Method 5");
+    }
+
+    @Override
+    public void method6() {
+        System.out.println("Method 6");
+    }
+
+    @Override
+    public void method7() {
+        System.out.println("Method 7");
+    }
+}
+
+public class InterfaceInheritanceExample {
+    public static void methodWithInterface1(Interface1 obj) {
+        obj.method1();
+        obj.method2();
+    }
+
+    public static void methodWithInterface2(Interface2 obj) {
+        obj.method3();
+        obj.method4();
+    }
+
+    public static void methodWithInterface3(Interface3 obj) {
+        obj.method5();
+        obj.method6();
+    }
+
+    public static void methodWithCombinedInterface(CombinedInterface obj) {
+        obj.method1();
+        obj.method2();
+        obj.method3();
+        obj.method4();
+        obj.method5();
+        obj.method6();
+        obj.method7();
+    }
+
+    public static void main(String[] args) {
+        ImplementingClass obj = new ImplementingClass();
+        methodWithInterface1(obj);
+        methodWithInterface2(obj);
+        methodWithInterface3(obj);
+        methodWithCombinedInterface(obj);
+        obj.concreteMethod();
+    }
+}
+
+
+Q.18 Write a Java program using try and catch to generate NegativeArrayIndex Exception and 
+Arithmetic Exception
+
+public class ExceptionHandlingExample {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30};
+
+        try {
+            // NegativeArrayIndex Exception
+            System.out.println(arr[-1]);
+
+            // ArithmeticException
+            int result = 10 / 0;
+            System.out.println(result);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ArrayIndexOutOfBoundsException caught: " + e.getMessage());
+        } catch (ArithmeticException e) {
+            System.out.println("ArithmeticException caught: " + e.getMessage());
+        }
+    }
+}
+
+
+Q.19 Write a program that outputs the name of the capital of the country entered at the 
+command line. The program should throw a “NoMatchFoundException” when it fails to 
+print the capital of the country entered at the command line.
+
+import java.util.HashMap;
+import java.util.Map;
+
+class NoMatchFoundException extends Exception {
+    public NoMatchFoundException(String message) {
+        super(message);
+    }
+}
+
+public class CapitalFinder {
+    public static void main(String[] args) {
+        Map<String, String> countryCapitals = new HashMap<>();
+        countryCapitals.put("India", "New Delhi");
+        countryCapitals.put("USA", "Washington D.C.");
+        countryCapitals.put("France", "Paris");
+        // Add more countries and capitals as needed
+
+        if (args.length == 0) {
+            System.out.println("Please provide a country name as a command-line argument.");
+            return;
+        }
+
+        String country = args[0];
+        String capital = countryCapitals.get(country);
+
+        try {
+            if (capital == null) {
+                throw new NoMatchFoundException("Capital not found for " + country);
+            }
+            System.out.println("Capital of " + country + " is " + capital);
+        } catch (NoMatchFoundException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+
+Q.20 Write a program to input name and age of a person and throw a user-defined exception, if 
+the entered age is negative
+
+import java.util.Scanner;
+
+class NegativeAgeException extends Exception {
+    public NegativeAgeException(String message) {
+        super(message);
+    }
+}
+
+public class Person {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter age: ");
+        int age = scanner.nextInt();
+
+        try {
+            if (age < 0) {
+                throw new NegativeAgeException("Age cannot be negative");
+            }
+            System.out.println("Name: " + name);
+            System.out.println("Age: " + age);
+        } catch (NegativeAgeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+Q 21 Write a program to raise a user defined exception if username is less than 6 characters and 
+password does not match
+
+class InvalidCredentialsException(Exception):
+    pass
+
+class User:
+    def _init_(self, username, password):
+        if len(username) < 6:
+            raise InvalidCredentialsException("Username must be at least 6 characters long")
+        if password != "correct_password":
+            raise InvalidCredentialsException("Incorrect password")
+        self.username = username
+        self.password = password
+
+    def display_info(self):
+        print(f"Username: {self.username}")
+        print(f"Password: {self.password}")
+
+if _name_ == "_main_":
+    try:
+        user = User("alice", "wrong_password")  # Incorrect password
+        user.display_info()
+    except InvalidCredentialsException as e:
+        print(e)
+
+
+Q.22 Consider an Employee recruitment system that prints the candidate name based on the 
+age criteria. The name and age of the candidate are taken as Input.Create two user-defined 
+exceptions named “TooOlder” and “TooYounger”
+If age>45, throw exception “TooOlder”.
+If age<20, throw exception “TooYounger”.
+Otherwise, print “Eligible” and print the name of the candidate
+
+import java.util.Scanner;
+
+class TooOlderException extends Exception {
+    public TooOlderException(String message) {
+        super(message);
+    }
+}
+
+class TooYoungerException extends Exception {
+    public TooYoungerException(String message) {
+        super(message);
+    }
+}
+
+public class EmployeeRecruitment {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter candidate name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter candidate age: ");
+        int age = scanner.nextInt();
+
+        try {
+            if (age > 45) {
+                throw new TooOlderException("Candidate is too old.");
+            } else if (age < 20) {
+                throw new TooYoungerException("Candidate is too young.");
+            } else {
+                System.out.println("Eligible: " + name);
+            }
+        } catch (TooOlderException | TooYoungerException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+
+Q.23 Create two user-defined exceptions named “TooHot” and “TooCold” to check the 
+temperature (in Celsius) given by the user passed through the command line is too hot or 
+too cold.
+If temperature > 35, throw exception “TooHot”.
+If temperature <5, throw exception “TooCold”.
+Otherwise, print “Normal” and convert it to Farenheit
+
+public class TemperatureCheck {
+    public static void main(String[] args) {
+        try {
+            int temperature = Integer.parseInt(args[0]);
+
+            if (temperature > 35) {
+                throw new TooHotException("Temperature is too hot!");
+            } else if (temperature < 5) {
+                throw new TooColdException("Temperature is too cold!");
+            } else {
+                double fahrenheit = (temperature * 9/5) + 32;
+                System.out.println("Temperature is normal: " + fahrenheit + "°F");
+            }
+        } catch (TooHotException | TooColdException e) {
+            System.out.println(e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid integer temperature.");
+        }
+    }
+}
+
+class TooHotException extends Exception {
+    public TooHotException(String message) {
+        super(message);
+    }
+}
+
+class TooColdException extends Exception {
+    public TooColdException(String message) {
+        super(message);
+    }
+}
+
+
+Q.24 Write a program to define a class Employee to accept emp_id, emp _name, basic_salary 
+from the user and display the gross_salary
+
+import java.util.Scanner;
+
+class Employee {
+    int emp_id;
+    String emp_name;
+    double basic_salary, da, hra, gross_salary;
+
+    public void input() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter Employee ID: ");
+        emp_id = scanner.nextInt();
+
+        System.out.print("Enter Employee Name: ");
+        emp_name = scanner.next();
+
+        System.out.print("Enter Basic Salary: ");
+        basic_salary = scanner.nextDouble();
+
+        scanner.close();
+
+        da = 0.1 * basic_salary;
+        hra = 0.05 * basic_salary;
+        gross_salary = basic_salary + da + hra;
+    }
+
+    public void display() {
+        System.out.println("Employee ID: " + emp_id);
+        System.out.println("Employee Name: " + emp_name);
+        System.out.println("Basic Salary: " + basic_salary);
+        System.out.println("Gross Salary: " + gross_salary);
+    }
+
+    public static void main(String[] args) {
+        Employee emp = new Employee();
+        emp.input();
+        emp.display();
+    }
+}
